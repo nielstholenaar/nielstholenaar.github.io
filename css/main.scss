@@ -1,0 +1,292 @@
+$grey: #f5f5f5;
+$blue: #275DAD;
+$black: #00171F;
+$white: #ffffff;
+$center-div-width: 800px;
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700&display=swap');
+
+body {
+  color: $black;
+  font-family: 'Open Sans', sans-serif;
+  margin: 0;
+  padding-bottom: 115px;
+}
+
+.center-div {
+  max-width: $center-div-width;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.profile {
+  &__header {
+    background: $blue;
+    padding: 24px;
+
+    &-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      @media all and (max-width: 900px) {
+        flex-wrap: wrap;
+      }
+    }
+
+    &-details {
+      @media all and (max-width: 900px) {
+        order: 2;
+        margin: 0 auto;
+      }
+    }
+  }
+
+  &__email {
+    a {
+      color: $white;
+      margin-left: 6px;
+      font-weight: 500;
+      text-decoration: none;
+    }
+  }
+
+  &__social {
+    a {
+      color: $white;
+      font-weight: 500;
+      text-decoration: none;
+
+      &:last-child {
+        margin-left: 6px;
+      }
+    }
+  }
+
+
+  &__title {
+    width: 100%;
+    margin-bottom: 12px;
+    color: $white;
+  }
+
+  &__email {
+    margin: 0;
+    color: $white;
+  }
+
+  &__avatar {
+    border-radius: 50%;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    margin-bottom: 24px;
+
+    @media all and (max-width: 900px) {
+      order: 1;
+      margin: 0 auto 24px auto;
+    }
+
+    img {
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &__section {
+    padding: 48px 0;
+
+    &:nth-child(even) {
+      background: $grey;
+    }
+
+    &-title {
+      margin-bottom: 24px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid $blue;
+
+      .bi {
+        margin-right: 6px;
+        font-size: 18px;
+      }
+    }
+  }
+
+  &__footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    background: $white;
+    padding: 24px;
+    box-shadow: 0px -4px 29px -1px rgba(163, 163, 163, 0.65);
+
+    &-btn {
+      border-radius: 50%;
+      background: $blue;
+      color: $white;
+      width: 64px;
+      height: 64px;
+      font-size: 32px;
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:not(:last-child) {
+        margin-right: 12px;
+      }
+    }
+  }
+
+  &__arrow {
+    position: fixed;
+    cursor: pointer;
+    top: 50%;
+    font-size: 64px;
+    color: rgba($blue, 0.7);
+    transform: translateY(-50%);
+    border: 0;
+    background: none;
+
+    &:focus, &:hover {
+      color: $blue;
+    }
+
+    &.left {
+      left: 12px;
+    }
+
+    &.right {
+      right: 12px;
+    }
+  }
+
+}
+
+////////////////////////////
+// Work experience
+////////////////////////////
+.work-experience {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid darken($grey, 10%);
+  }
+
+  @media all and(max-width: 900px) {
+    flex-direction: column;
+
+    &:not(:last-child) {
+      padding-bottom: 24px;
+    }
+  }
+
+  &__employer {
+    font-weight: 500;
+
+    @media all and(min-width: 900px) {
+      flex: 0 0 150px;
+    }
+  }
+
+  &__description {
+    @media all and(min-width: 900px) {
+      flex: 1 1 auto;
+      padding: 0 32px;
+    }
+  }
+
+  &__year {
+    @media all and(min-width: 900px) {
+      flex: 0 0 150px;
+    }
+  }
+
+  &__title {
+    font-weight: 500;
+  }
+}
+
+////////////////////////////
+// Skills
+////////////////////////////
+.skills {
+  display: grid;
+  grid-template-columns: 100%;
+  grid-gap: 12px 48px;
+
+  @media all and (min-width: 900px) {
+    grid-template-columns: calc(50% - 24px) calc(50% - 24px);
+  }
+}
+
+.skill {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  progress {
+    background: $white;
+
+    &[value] {
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+      width: 150px;
+      height: 12px;
+    }
+
+    &::-webkit-progress-bar {
+      background: $white;
+    }
+
+    &::-webkit-progress-value, &::-moz-progress-bar {
+      background-color: $blue !important;
+    }
+  }
+}
+
+////////////////////////////
+// Education
+////////////////////////////
+.education {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 24px;
+
+  &:not(:last-child) {
+    border-bottom: 1px solid darken($grey, 10%);
+    padding-bottom: 24px;
+  }
+
+  @media all and(max-width: 900px) {
+    flex-direction: column;
+  }
+
+  &__school {
+    font-weight: 500;
+
+    @media all and(min-width: 900px) {
+      flex: 0 0 150px;
+    }
+  }
+
+  &__description {
+    @media all and(min-width: 900px) {
+      flex: 1 1 auto;
+      padding: 0 32px;
+    }
+  }
+
+  &__year {
+    @media all and(min-width: 900px) {
+      flex: 0 0 150px;
+    }
+  }
+}
