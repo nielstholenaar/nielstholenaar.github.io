@@ -15,10 +15,6 @@
 
 <div class="profile">
 
-  <button class="profile__arrow  left">
-    <i class="bi bi-arrow-left-circle-fill"></i>
-  </button>
-
   <header class="profile__header">
     <div class="center-div  profile__header-inner">
       <div class="profile__header-details">
@@ -38,9 +34,11 @@
         </p>
       </div>
 
-
-      <div class="profile__avatar">
-        <img src="/img/avatar.jpeg" alt="Foto van Niels Tholenaar"/>
+      <div class="profile__avatar-container" ontouchstart="this.classList.toggle('hover');">
+        <div class="profile__avatar">
+          <img src="/img/avatar.jpeg" alt="Foto van Niels Tholenaar" class="profile__avatar-front"/>
+          <img src="/img/avatar.gif" loading="lazy" class="profile__avatar-back"/>
+        </div>
       </div>
     </div>
   </header>
@@ -64,7 +62,6 @@
         <h2 class="profile__section-title"><i class="bi  bi-wrench"></i> Vaardigheden</h2>
 
         <div class="skills">
-
           <div class="skill">
             <span class="skill__label">PHP</span>
             <progress value="95" max="100"></progress>
@@ -131,7 +128,6 @@
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- Work experience -->
@@ -216,17 +212,12 @@
 
   </main>
 
-  <button class="profile__arrow  right">
-    <i class="bi bi-arrow-right-circle-fill"></i>
-  </button>
-
   <footer class="profile__footer">
-    <h3>Geinteresseerd?</h3>
-    <a href="mailto:info@123quality.nl" class="">Neem contact op!</a>
+    <h3 class="profile__footer-title">Geinteresseerd?</h3>
+    <a href="mailto:info@123quality.nl" class="profile__footer-link">
+      <i class="bi  bi-envelope-fill"></i> Neem contact op!</a>
   </footer>
 </div>
-
-<script src="js/main.js"></script>
 </body>
 
 </html>

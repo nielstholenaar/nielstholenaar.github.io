@@ -3,7 +3,11 @@ body {
   color: #00171F;
   font-family: "Open Sans", sans-serif;
   margin: 0;
-  padding-bottom: 115px;
+  padding-bottom: 150px;
+}
+
+.bi {
+  margin-right: 6px;
 }
 
 .center-div {
@@ -56,22 +60,44 @@ body {
   color: #ffffff;
 }
 .profile__avatar {
+  transition: 0.6s;
+  transform-style: preserve-3d;
+  position: relative;
+}
+.profile__avatar-front, .profile__avatar-back {
+  backface-visibility: hidden;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.profile__avatar-front {
+  z-index: 2;
+  transform: rotateY(0deg);
+}
+.profile__avatar-back {
+  transform: rotateY(180deg);
+}
+.profile__avatar-container {
   border-radius: 50%;
   height: 150px;
   width: 150px;
   overflow: hidden;
   margin-bottom: 24px;
+  perspective: 1000px;
 }
 @media all and (max-width: 900px) {
-  .profile__avatar {
+  .profile__avatar-container {
     order: 1;
     margin: 0 auto 24px auto;
   }
 }
-.profile__avatar img {
+.profile__avatar-container img {
   object-fit: cover;
-  width: 100%;
-  height: 100%;
+  width: 150px;
+  height: 150px;
+}
+.profile__avatar-container:hover .profile__avatar, .profile__avatar-container.hover .profile__avatar {
+  transform: rotateY(180deg);
 }
 .profile__section {
   padding: 48px 0;
@@ -84,54 +110,28 @@ body {
   padding-bottom: 12px;
   border-bottom: 3px solid #275DAD;
 }
-.profile__section-title .bi {
-  margin-right: 6px;
-  font-size: 18px;
-}
 .profile__footer {
   position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
-  display: flex;
-  justify-content: center;
   background: #ffffff;
   padding: 24px;
   box-shadow: 0px -4px 29px -1px rgba(163, 163, 163, 0.65);
-}
-.profile__footer-btn {
-  border-radius: 50%;
-  background: #275DAD;
-  color: #ffffff;
-  width: 64px;
-  height: 64px;
-  font-size: 32px;
-  text-decoration: none;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
-.profile__footer-btn:not(:last-child) {
-  margin-right: 12px;
+.profile__footer-title {
+  margin-bottom: 24px;
 }
-.profile__arrow {
-  position: fixed;
-  cursor: pointer;
-  top: 50%;
-  font-size: 64px;
-  color: rgba(39, 93, 173, 0.7);
-  transform: translateY(-50%);
-  border: 0;
-  background: none;
-}
-.profile__arrow:focus, .profile__arrow:hover {
-  color: #275DAD;
-}
-.profile__arrow.left {
-  left: 12px;
-}
-.profile__arrow.right {
-  right: 12px;
+.profile__footer-link {
+  text-decoration: none;
+  background: #275DAD;
+  padding: 12px 24px;
+  border-radius: 24px;
+  color: #ffffff;
+  font-weight: bold;
 }
 
 .work-experience {
